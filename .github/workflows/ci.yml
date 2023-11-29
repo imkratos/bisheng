@@ -14,41 +14,41 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build_bisheng_langchain:
-    runs-on: ubuntu-latest
-    #if: startsWith(github.event.ref, 'refs/tags')
-    steps:
-      - name: checkout
-        uses: actions/checkout@v2
+  # build_bisheng_langchain:
+  #   runs-on: ubuntu-latest
+  #   #if: startsWith(github.event.ref, 'refs/tags')
+  #   steps:
+  #     - name: checkout
+  #       uses: actions/checkout@v2
       
-      - name: Get version
-        id: get_version
-        run: |
-          echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+  #     - name: Get version
+  #       id: get_version
+  #       run: |
+  #         echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
       
-      - name: Set Environment Variable
-        run: echo "RELEASE_VERSION=${{ steps.get_version.outputs.VERSION }}" >> $GITHUB_ENV
+  #     - name: Set Environment Variable
+  #       run: echo "RELEASE_VERSION=${{ steps.get_version.outputs.VERSION }}" >> $GITHUB_ENV
 
-      # 构建 bisheng_langchain
-      - name: Set python version 3.8
-        uses: actions/setup-python@v1
-        with:
-          python-version: 3.8
+  #     # 构建 bisheng_langchain
+  #     - name: Set python version 3.8
+  #       uses: actions/setup-python@v1
+  #       with:
+  #         python-version: 3.8
 
-      - name: Build PyPi bisheng-langchain and push
-        id: pypi_build_bisheng_langchain
-        run: |
-          pip install Cython
-          pip install wheel
-          pip install twine
-          cd ./src/bisheng-langchain
-          python setup.py bdist_wheel
-          set +e
-          twine upload dist/* -u ${{ secrets.PYPI_USER }} -p ${{ secrets.PYPI_PASSWORD }} --repository pypi
-          set -e
+  #     - name: Build PyPi bisheng-langchain and push
+  #       id: pypi_build_bisheng_langchain
+  #       run: |
+  #         pip install Cython
+  #         pip install wheel
+  #         pip install twine
+  #         cd ./src/bisheng-langchain
+  #         python setup.py bdist_wheel
+  #         set +e
+  #         twine upload dist/* -u ${{ secrets.PYPI_USER }} -p ${{ secrets.PYPI_PASSWORD }} --repository pypi
+  #         set -e
         
   build_bisheng:
-    needs: build_bisheng_langchain
+    # needs: build_bisheng_langchain
     runs-on: ubuntu-latest
     # if: startsWith(github.event.ref, 'refs/tags')
     steps:
@@ -58,7 +58,7 @@ jobs:
       - name: Get version
         id: get_version
         run: |
-          echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+          echo ::set-output name=VERSION:: main
       
       - name: Set Environment Variable
         run: echo "RELEASE_VERSION=${{ steps.get_version.outputs.VERSION }}" >> $GITHUB_ENV
@@ -87,8 +87,8 @@ jobs:
       - name: build lock
         run: | 
           cd ./src/backend
-          pip install bisheng_langchain==$RELEASE_VERSION
-          sed -i 's/^bisheng_langchain.*/bisheng_langchain = "'$RELEASE_VERSION'"/g' pyproject.toml
+          # pip install bisheng_langchain==$RELEASE_VERSION
+          # sed -i 's/^bisheng_langchain.*/bisheng_langchain = "'$RELEASE_VERSION'"/g' pyproject.toml
           poetry lock
           cd ../../
 
