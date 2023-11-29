@@ -75,7 +75,7 @@ export const LoginPage = () => {
             <div className=" absolute w-full h-full z-10 flex justify-end top-0">
                 <div className="w-[760px] sm:px-[200px] px-[20px] py-[200px] bg-[rgba(255,255,255,1)] dark:bg-gray-950 relative">
                     <div className="flex gap-4 items-center bg-[#347ef9]">
-                        <img src='/logo.jpeg' className="w-9 h-9" alt="" />
+                        <img src='/newlogo.jpg' className="w-9 h-9" alt="" />
                         <span className="text-[#fff] text-sm">{t('login.slogen')}</span>
                     </div>
                     <div className="grid gap-4 mt-6">

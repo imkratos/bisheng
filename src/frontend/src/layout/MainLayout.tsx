@@ -31,7 +31,7 @@ export default function MainLayout() {
 
     return <div className="flex">
         <div className="bg-white h-screen w-40 px-4 py-8 shadow-xl dark:shadow-slate-700 relative text-center">
-            <Link className="inline-block mb-1" to='/'><img src='/logo.jpeg' className="w-9 h-9" alt="" /></Link>
+            <Link className="inline-block mb-1" to='/'><img src='/newlogo.jpg' className="w-9 h-9" alt="" /></Link>
             <h1 className="text-white font-bold text-xl text-center">{t('title')}</h1>
             <nav className="mt-8">
                 <NavLink to='/' className="navlink inline-flex rounded-md text-sm px-4 py-2 mt-1 w-full hover:bg-secondary/80">
@@ -57,7 +57,7 @@ export default function MainLayout() {
             <div className="absolute left-0 bottom-0 w-full p-2">
                 {/* <Separator /> */}
                 <div className="flex h-5 items-center my-2">
-                    <TooltipProvider>
+                    {/* <TooltipProvider>
                         <Tooltip>
                             <TooltipTrigger className="flex-1 py-1 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer">
                                 <div className="" onClick={() => setDark(!dark)}>
@@ -70,8 +70,8 @@ export default function MainLayout() {
                             </TooltipTrigger>
                             <TooltipContent><p>{t('menu.themeSwitch')}</p></TooltipContent>
                         </Tooltip>
-                    </TooltipProvider>
-                    <Separator className="mx-1" orientation="vertical" />
+                    </TooltipProvider> */}
+                    {/* <Separator className="mx-1" orientation="vertical" /> */}
                     <TooltipProvider>
                         <Tooltip>
                             <TooltipTrigger className="flex-1 py-1 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer">
@@ -84,8 +84,8 @@ export default function MainLayout() {
                             <TooltipContent><p>{options[language]}</p></TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
-                    <Separator className="mx-1" orientation="vertical" />
-                    <TooltipProvider>
+                    {/* <Separator className="mx-1" orientation="vertical" /> */}
+                    {/* <TooltipProvider>
                         <Tooltip>
                             <TooltipTrigger className="flex-1 py-1 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer">
                                 <Link to={"https://github.com/dataelement/bisheng"} target="_blank">
@@ -105,9 +105,9 @@ export default function MainLayout() {
                             </TooltipTrigger>
                             <TooltipContent><p>{t('menu.document')}</p></TooltipContent>
                         </Tooltip>
-                    </TooltipProvider>
+                    </TooltipProvider> */}
                 </div>
-                <Separator className="mx-1" />
+                {/* <Separator className="mx-1" /> */}
                 <div className="flex h-5 items-center my-2">
                     <TooltipProvider>
                         <Tooltip>
