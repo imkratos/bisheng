@@ -58,7 +58,7 @@ jobs:
       - name: Get version
         id: get_version
         run: |
-          echo ::set-output name=VERSION:: main
+          echo ::set-output name=VERSION::main
       
       - name: Set Environment Variable
         run: echo "RELEASE_VERSION=${{ steps.get_version.outputs.VERSION }}" >> $GITHUB_ENV
