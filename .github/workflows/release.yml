@@ -5,7 +5,7 @@ on:
   push:
     # Sequence of patterns matched against refs/tags
     branches:
-      - "release"
+      - "main"
 
 env:
   DOCKERHUB_REPO: dataelement/
