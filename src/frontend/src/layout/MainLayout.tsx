@@ -56,22 +56,8 @@ export default function MainLayout() {
             </nav>
             <div className="absolute left-0 bottom-0 w-full p-2">
                 {/* <Separator /> */}
+                <Separator className="mx-1" orientation="vertical" />
                 <div className="flex h-5 items-center my-2">
-                    <TooltipProvider>
-                        <Tooltip>
-                            <TooltipTrigger className="flex-1 py-1 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer">
-                                <div className="" onClick={() => setDark(!dark)}>
-                                    {dark ? (
-                                        <SunIcon className="side-bar-button-size mx-auto" />
-                                    ) : (
-                                        <MoonIcon className="side-bar-button-size mx-auto" />
-                                    )}
-                                </div>
-                            </TooltipTrigger>
-                            <TooltipContent><p>{t('menu.themeSwitch')}</p></TooltipContent>
-                        </Tooltip>
-                    </TooltipProvider>
-                    <Separator className="mx-1" orientation="vertical" />
                     <TooltipProvider>
                         <Tooltip>
                             <TooltipTrigger className="flex-1 py-1 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer">
@@ -85,27 +71,6 @@ export default function MainLayout() {
                         </Tooltip>
                     </TooltipProvider>
                     <Separator className="mx-1" orientation="vertical" />
-                    <TooltipProvider>
-                        <Tooltip>
-                            <TooltipTrigger className="flex-1 py-1 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer">
-                                <Link to={"https://github.com/dataelement/bisheng"} target="_blank">
-                                    <Github className="side-bar-button-size mx-auto" />
-                                </Link>
-                            </TooltipTrigger>
-                            <TooltipContent><p>github</p></TooltipContent>
-                        </Tooltip>
-                    </TooltipProvider>
-                    <Separator className="mx-1" orientation="vertical" />
-                    <TooltipProvider>
-                        <Tooltip>
-                            <TooltipTrigger className="flex-1 py-1 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer">
-                                <Link to={"https://m7a7tqsztt.feishu.cn/wiki/ZxW6wZyAJicX4WkG0NqcWsbynde"} target="_blank">
-                                    <BookOpen className="side-bar-button-size mx-auto" />
-                                </Link>
-                            </TooltipTrigger>
-                            <TooltipContent><p>{t('menu.document')}</p></TooltipContent>
-                        </Tooltip>
-                    </TooltipProvider>
                 </div>
                 <Separator className="mx-1" />
                 <div className="flex h-5 items-center my-2">
