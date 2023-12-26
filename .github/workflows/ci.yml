@@ -77,8 +77,8 @@ jobs:
       # - name: Set up QEMU
       #   uses: docker/setup-qemu-action@v1
 
-      - name: set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+      #- name: set up Docker Buildx
+      #  uses: docker/setup-buildx-action@v3
 
       - name: install poetry
         uses: snok/install-poetry@v1
