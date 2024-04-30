@@ -1,0 +1,40 @@
+kind: pipeline
+name: elem-storages
+type: docker
+
+volumes:
+  - name: maven_local_repo
+    host:
+      path: /data/drone-data/m2
+  - name: data
+    host:
+      path: /data/drone-data/package/
+  - name: dockersock
+    host:
+      path: /var/run/
+
+steps:
+  - name: build-prd
+    image: maven:3-openjdk-17
+    pull: if-not-exists
+    environment:
+      USERNAME:
+        from_secret: upload_name
+    volumes:
+      - name: maven_local_repo
+        path: /root/.m2
+      - name: data
+        path: /home/
+    commands:
+      - mvn clean package -Dmaven.test.skip=true -DsendCredentialsOverHttp=true
+      - pwd
+      - cd target/
+      - cp storages-0.0.1.jar /drone/src
+#      - curl -k --progress-bar -o /dev/null --user $USERNAME --upload-file storages-0.0.1.jar http://192.168.106.244:5081/repository/raw-hosted/storages-0.0.1.jar
+    when: # 无论成功失败 都运行
+      status:
+        - success
+      branch: # git 分支
+        - master
+      event: # 事  件
+        - push
