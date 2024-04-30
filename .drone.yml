@@ -35,6 +35,6 @@ steps:
       status:
         - success
       branch: # git 分支
-        - master
+        - main
       event: # 事  件
         - push
