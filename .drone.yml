@@ -1,5 +1,5 @@
 kind: pipeline
-name: elem-storages
+name: elem-bisheng
 type: docker
 
 volumes:
