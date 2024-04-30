@@ -31,7 +31,7 @@ steps:
       - cd target/
       - cp storages-0.0.1.jar /drone/src
 #      - curl -k --progress-bar -o /dev/null --user $USERNAME --upload-file storages-0.0.1.jar http://192.168.106.244:5081/repository/raw-hosted/storages-0.0.1.jar
-    when: # 无论成功失败 都运行
+    when: # 无论成功失败  都运行
       status:
         - success
       branch: # git 分支
